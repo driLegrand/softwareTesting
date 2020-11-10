@@ -5,9 +5,9 @@ package utils;
  */
 public class Constantes{
     public static final String OCCUPATION = "Programmeur";
-    public static final String URL = "jdbc:derby://localhost:1527/ST2TST_DB";
-    public static final String USER = "adm";
-    public static final String MDP = "adm";
+    public static final String URL = "jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7375737";
+    public static final String USER = "sql7375737";
+    public static final String MDP = "ICxuurfGJu";
     public static final String SELECT_ALL = "SELECT * FROM PROGRAMMEUR";
     public static final String SELECT_UNIQUE = "SELECT * FROM PROGRAMMEUR WHERE MATRICULE = ?";
     public static final String UPDATE_UNIQUE = "UPDATE PROGRAMMEUR SET NOM = ?, PRENOM = ?, ADRESSE = ?, PSEUDO = ?, RESPONSABLE = ?, HOBBY = ?, DATE_NAISS = ?, DATE_EMB = ? WHERE MATRICULE = ?";
