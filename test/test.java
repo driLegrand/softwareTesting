@@ -77,7 +77,7 @@ public class test {
     public void testDisplaySupprimer() throws NoSuchFieldException, IllegalAccessException {
         final Vue ihm = new Vue();
         ihm.display();
-        ihm.displayAjouter();
+        ihm.displaySupprimer();
 
         final Field field = ihm.getClass().getSuperclass().getDeclaredField("paneGenerique");
         field.setAccessible(true);
