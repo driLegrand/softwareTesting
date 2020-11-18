@@ -31,7 +31,7 @@ public class test {
     public void testAjouterProgrammeur() throws SQLException
     {
         Assert.assertNotNull(conn);
-        pstmt = conn.prepareStatement(Constantes.INSERT_UNIQUE);
+        PreparedStatement pstmt = conn.prepareStatement(Constantes.INSERT_UNIQUE);
 
         pstmt.setString(1, Constantes.TESTADDPROG_MATR);
         pstmt.setString(2, Constantes.TESTADDPROG_NOM);
@@ -51,7 +51,7 @@ public class test {
     public void testModifierProgrammeur() throws SQLException
     {
         Assert.assertNotNull(conn);
-        pstmt = conn.prepareStatement(Constantes.UPDATE_UNIQUE);
+        PreparedStatement pstmt = conn.prepareStatement(Constantes.UPDATE_UNIQUE);
 
         pstmt.setString(1, Constantes.TESTADDPROG_NOM);
         pstmt.setString(2, Constantes.TESTADDPROG_PRENOM);
@@ -71,7 +71,7 @@ public class test {
     public void testSupprimerProgrammeur() throws SQLException
     {
         Assert.assertNotNull(conn);
-        pstmt = conn.prepareStatement(Constantes.DELETE_UNIQUE);
+        PreparedStatement pstmt = conn.prepareStatement(Constantes.DELETE_UNIQUE);
 
         pstmt.setString(1, Constantes.TESTADDPROG_MATR);
 
