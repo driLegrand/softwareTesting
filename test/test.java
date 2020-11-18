@@ -24,9 +24,9 @@ public class test {
 
             tested.fermerRessources();
             final Field field = tested.getClass().getDeclaredField("dbConn");
-            field.setAccessible(true);
+            field.setAccessible(true); // changethe field dbConn in ActionsBDImpl to public
 
-            Connection dbConn = (Connection) field.get(tested);
+            Connection dbConn = (Connection) field.get(tested); //getter of dbConn
 
             Assert.assertNull(dbConn);
         } catch (NoSuchFieldException | IllegalAccessException exception) {
