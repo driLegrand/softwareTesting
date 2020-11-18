@@ -281,7 +281,7 @@ public class Vue extends GestionVueAbstraite {
     @Override
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == itemTous) {
-            //affichage du nouveau panel           
+            //affichage du nouveau panel
             getContentPane().removeAll();
             this.displayAfficherTous();
             this.setContentPane(paneAfficher);
