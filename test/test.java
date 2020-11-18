@@ -57,7 +57,8 @@ public class test {
         ActionsBDImpl tested = new ActionsBDImpl();
         Assert.assertTrue(tested.getResultSet(query) instanceof ResultSet);
     }
-      
+
+    @Test
     public void testDisplayModifierFinal() throws NoSuchFieldException, IllegalAccessException {
         // Setup
         final Vue vue = new Vue();
