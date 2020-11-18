@@ -1,4 +1,14 @@
-﻿1. Indications particulières pour lancer l’application
+Team : 
+ - William Serviant
+ - Julien Larivière
+ - Théo Abdmeziem
+ - Hadrien Tournès
+ - Adrien Demagny
+ - POSTMAN (ZHENG Shuaiting)
+ - Yefan Guo
+ - Kevin Nagels
+
+1. Indications particulières pour lancer l’application
 Avant de lancer l’application pour la première fois, il faut se connecter à la base données. 
 Pour cela il suffit de se diriger sur l’onglet ‘Services’, choisir ‘Databases’ puis sélectionner ‘Start Server’ 
 avec un clic droit sur ‘JavaDB’ ou sélectionner ‘Connect...’ avec un clic droit sur ‘jdbc:derby://localhost:1527/LSI_L3_JAVA [adm on ADM]’. 
