@@ -27,6 +27,9 @@ public class test {
 
     public ActionsBDImpl conn = new ActionsBDImpl();
 
+    /**
+     * Test to check closure of the Database
+     */
     @Test
     public void testFermerRessources() {
         ActionsBDImpl tested = new ActionsBDImpl();
@@ -45,12 +48,18 @@ public class test {
 
     }
 
+    /**
+     * Test to check if we retrieve list of programmers from Database
+     */
     @Test
     public void testGetProgrammeurs() {
         ActionsBDImpl tested = new ActionsBDImpl();
         Assert.assertTrue(tested.getProgrammeurs() instanceof ArrayList);
     }
 
+    /**
+     * Test to check if we retrieve list of programmers from Database
+     */
     @Test
     public void testGetResultSet() {
         String query = Constantes.SELECT_ALL;
@@ -58,6 +67,12 @@ public class test {
         Assert.assertTrue(tested.getResultSet(query) instanceof ResultSet);
     }
 
+    /**
+     * Test to check components of the Display
+     *
+     * @throws NoSuchFieldException If one field is missing is the Database
+     * @throws IllegalAccessException If the Database cannot be access
+     */
     @Test
     public void testDisplayModifierFinal() throws NoSuchFieldException, IllegalAccessException {
         // Setup
@@ -96,6 +111,12 @@ public class test {
         Assert.assertTrue("btnValiderEcranModifier wrong bounds", ((JButton) btnValidateEcranModifier.get(vue)).getBounds().x == 295);
     }
 
+    /**
+     * Test if the background color of contentPane is Gray
+     *
+     * @throws NoSuchFieldException If one field is missing is the Database
+     * @throws IllegalAccessException If the Database cannot be access
+     */
     @Test
     public void testActionPerformed() throws NoSuchFieldException, IllegalAccessException {
         final Vue vue = new Vue();
@@ -116,6 +137,12 @@ public class test {
         Assert.assertEquals(Color.GRAY, vue.getContentPane().getBackground());
     }
 
+    /**
+     * Test if all components of the window are here
+     *
+     * @throws NoSuchFieldException If one field is missing is the Database
+     * @throws IllegalAccessException If the Database cannot be access
+     */
     @Test
     public void testDisplay() throws NoSuchFieldException, IllegalAccessException {
         final Vue ihm = new Vue();
@@ -209,6 +236,12 @@ public class test {
         Assert.assertEquals("paneGenerique didn't match.", paneGeneriqueTest.toString(), field.get(ihm).toString());
     }
 
+    /**
+     * Test to check the Rechercher button
+     *
+     * @throws NoSuchFieldException If one field is missing is the Database
+     * @throws IllegalAccessException If the Database cannot be access
+     */
     @Test
     public void testSetButtonBounds() throws NoSuchFieldException, IllegalAccessException {
         final Vue ihm = new Vue();
@@ -232,6 +265,12 @@ public class test {
         Assert.assertEquals("btnRechercher didn't match.", btnRechercherTest.toString(), btnRechercher.toString());
     }
 
+    /**
+     * Test to check the label matricule
+     *
+     * @throws NoSuchFieldException If one field is missing is the Database
+     * @throws IllegalAccessException If the Database cannot be access
+     */
     @Test
     public void testSetFieldBounds() throws NoSuchFieldException, IllegalAccessException {
         final Vue ihm = new Vue();
