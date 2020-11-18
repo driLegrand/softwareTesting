@@ -296,6 +296,12 @@ public class test {
         Assert.assertEquals("labelMatricule didn't match.", labelMatriculeTest.toString(), labelMatricule.toString());
     }
 
+    /**
+     * Test to check paneAfficher and zoneAffichageProgrammeurs
+     *
+     * @throws NoSuchFieldException If one field is missing is the Database
+     * @throws IllegalAccessException If the Database cannot be access
+     */
     @Test
     public void testDisplayAfficherTous() throws NoSuchFieldException, IllegalAccessException {
         final Vue ihm = new Vue();
@@ -316,6 +322,12 @@ public class test {
         Assert.assertEquals("zoneAffichageProgrammeurs didn't match.", zoneAffichageProgrammeursTest.toString(), field2.get(ihm).toString());
     }
 
+    /**
+     * Test to check components of the DisplayAjouter
+     *
+     * @throws NoSuchFieldException If one field is missing is the Database
+     * @throws IllegalAccessException If the Database cannot be access
+     */
     @Test
     public void testDisplayAjouter() throws NoSuchFieldException, IllegalAccessException {
         final Vue ihm = new Vue();
@@ -348,6 +360,12 @@ public class test {
         Assert.assertEquals("paneGenerique didn't match.", paneGeneriqueTest.toString(), field.get(ihm).toString());
     }
 
+    /**
+     * Test to check components of the DisplaySupprimer
+     *
+     * @throws NoSuchFieldException If one field is missing is the Database
+     * @throws IllegalAccessException If the Database cannot be access
+     */
     @Test
     public void testDisplaySupprimer() throws NoSuchFieldException, IllegalAccessException {
         final Vue ihm = new Vue();
@@ -411,6 +429,9 @@ public class test {
         Assert.assertEquals("paneGenerique didn't match.", paneGeneriqueTest.toString(), field.get(ihm).toString());
     }
     
+    /**
+     * Test the function getProgrammeurs
+     */
     @Test
     public void getProgrammeurs() {
         ResultSet rs = Mockito.mock(ResultSet.class); // create a fake ResultSet to call ProgrammeurBean setters.
@@ -449,6 +470,9 @@ public class test {
         Assert.assertEquals(listeProgrammeurs.size(), 2); // check that the number of programmers recovered is correct
     }
 
+    /**
+     * Test to check afficherProgrammeurs
+     */
     @Test
     public void afficherProgrammeurs() {
         String listeProg = "";
@@ -470,6 +494,12 @@ public class test {
         Assert.assertEquals(listeProg, fakeString + fakeString + fakeString); //Check that the returned String is as expected
     }
 
+    /**
+     * Test to check adding an element to the list
+     *
+     * @throws NoSuchFieldException If one field is missing is the Database
+     * @throws IllegalAccessException If the Database cannot be access
+     */
     @Test
     public void testAddToList() throws NoSuchFieldException, IllegalAccessException {
         // given
@@ -485,6 +515,12 @@ public class test {
         Assert.assertEquals("Fields didn't match", list.size(), 22);
     }
 
+    /**
+     * Test to check components of the Display after modifications
+     *
+     * @throws NoSuchFieldException If one field is missing is the Database
+     * @throws IllegalAccessException If the Database cannot be access
+     */
     @Test
     public void testDisplayModifier() throws NoSuchFieldException, IllegalAccessException {
         // Setup
