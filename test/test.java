@@ -27,7 +27,7 @@ public class test {
 
     public ActionsBDImpl conn = new ActionsBDImpl();
  
-    @Test
+    /*@Test
     public void testAjouterProgrammeur() throws SQLException
     {
         Assert.assertNotNull(conn);
@@ -77,7 +77,7 @@ public class test {
 
         int isSuccessful = pstmt.executeUpdate();
         Assert.assertNotEquals(0, isSuccessful);
-    }
+    }*/
 
 
 
