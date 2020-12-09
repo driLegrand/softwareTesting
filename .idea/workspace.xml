@@ -24,6 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2a8fba83-70cb-4e46-971e-1e6d48f485fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/ProgrammeurBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/ProgrammeurBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +80,7 @@
       <recent name="D:\ST2TST_GW_10112020" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.test">
+  <component name="RunManager" selected="JUnit.test.getProgrammeurs">
     <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vue.Start" />
       <module name="ST2TST_GW_10112020" />
@@ -97,6 +99,16 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.getProgrammeurs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ST2TST_GW_10112020" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="METHOD_NAME" value="getProgrammeurs" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,6 +135,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test.getProgrammeurs" />
         <item itemvalue="JUnit.test" />
         <item itemvalue="Application.Start" />
         <item itemvalue="JUnit.test.testAddProgrammer" />
@@ -162,6 +175,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1607502212433">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.824@0.0.1536.824" timestamp="1607502212433" />
     <state x="765" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1605452936390">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -171,25 +188,29 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="678" y="246" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1606904761226" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1605644787545">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1607502594208">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.0.bottom/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1605003137215" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607502594208" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605644787545" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1605644787545">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1607502594208">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.0.center/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1605003137214" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607502594208" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605644787545" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1605644787545">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1607502594207">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.0.left/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1605003137214" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607502594207" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605644787545" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1605644787545">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1607502594208">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.0.right/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1605003137215" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607502594208" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605644787545" />
     <state x="490" y="180" key="Maven.ArtifactSearchDialog" timestamp="1605002892643">
       <screen x="0" y="0" width="1920" height="1050" />

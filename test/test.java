@@ -5,10 +5,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import utils.Constantes;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -488,40 +485,13 @@ public class test {
      */
     @Test
     public void getProgrammeurs() {
-        ResultSet rs = Mockito.mock(ResultSet.class); // create a fake ResultSet to call ProgrammeurBean setters.
-        ProgrammeurBean prog;
-        ArrayList<ProgrammeurBean> listeProgrammeurs = new ArrayList<>();
-        try {
-            //Create fake response from call of getString methods from our fake ResultSet (= Stubs)
-            Mockito.when(rs.getString("MATRICULE")).thenReturn("1");
-            Mockito.when(rs.getString("PRENOM")).thenReturn("Torvalds");
-            Mockito.when(rs.getString("NOM")).thenReturn("Linus");
-            Mockito.when(rs.getString("ADRESSE")).thenReturn("2 avenue Linux Git");
-            Mockito.when(rs.getString("PSEUDO")).thenReturn("linuxroot");
-            Mockito.when(rs.getString("RESPONSABLE")).thenReturn("Didier Achvar");
-            Mockito.when(rs.getString("HOBBY")).thenReturn("Salsa");
-            Mockito.when(rs.getString("DATE_NAISS")).thenReturn("1969-01-12");
-            Mockito.when(rs.getString("DATE_EMB")).thenReturn("2170-01-12");
-
-            Mockito.when(rs.next()).thenReturn(true).thenReturn(true).thenReturn(false); // simulate a resultSet with 2 elements
-
-            while (rs.next()) {
-                prog = Mockito.mock(ProgrammeurBean.class); // create a fake ProgrammerBean foreach element in the fake ResultSet
-                prog.setMatricule(rs.getString("MATRICULE"));
-                prog.setPrenom(rs.getString("PRENOM"));
-                prog.setNom(rs.getString("NOM"));
-                prog.setAdresse(rs.getString("ADRESSE"));
-                prog.setPseudo(rs.getString("PSEUDO"));
-                prog.setResponsable(rs.getString("RESPONSABLE"));
-                prog.setHobby(rs.getString("HOBBY"));
-                prog.setDate_naiss(rs.getDate("DATE_NAISS"));
-                prog.setDate_emb(rs.getDate("DATE_EMB"));
-                listeProgrammeurs.add(prog);
-            }
-        } catch (SQLException sqle) {
-            Logger.getLogger(ActionsBDImpl.class.getName()).log(Level.SEVERE, null, sqle);
-        }
-        Assert.assertEquals(listeProgrammeurs.size(), 2); // check that the number of programmers recovered is correct
+        ProgrammeurBean testProg1 = new ProgrammeurBean("1","Torvalds","Linus","2 avenue Linux Git","linuxroot","Didier Achvar","Salsa", Date.valueOf("1969-01-12"),Date.valueOf("2170-01-12"));
+        ProgrammeurBean testProg10 = new ProgrammeurBean("10","Codd","Edgar Frank","2 bvd des Relations","bdd1","Lamine Bougueroua","Puzzles",Date.valueOf("1923-01-12"),Date.valueOf("8541-01-12"));
+        ProgrammeurBean prog1 = (ProgrammeurBean)conn.getProgrammeurs().get(0);
+        ProgrammeurBean prog10 = (ProgrammeurBean)conn.getProgrammeurs().get(9);
+        Assert.assertEquals(prog1.getNom(), testProg1.getNom());
+        Assert.assertEquals(prog10.getNom(), testProg10.getNom());
+        Assert.assertEquals(conn.getProgrammeurs().size(), 13); // check that the number of programmers recovered is correct
     }
 
     /**
