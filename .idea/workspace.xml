@@ -24,14 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2a8fba83-70cb-4e46-971e-1e6d48f485fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/ActionsBD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/ActionsBD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/ActionsBDImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/ActionsBDImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/modele/ProgrammeurBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/ProgrammeurBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Constantes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Constantes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/GestionVueAbstraite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/GestionVueAbstraite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/Start.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/Start.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vue/Vue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/Vue.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,13 +57,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/utils" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\efrei_software_testing\softwareTesting\src\main\java\utils" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ST2TST_GW_10112020" />
     </key>
@@ -79,6 +74,7 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="utils" />
       <recent name="modele" />
     </key>
   </component>
