@@ -1,8 +1,13 @@
 import modele.ActionsBDImpl;
 import modele.ProgrammeurBean;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoJUnitRunner;
 import utils.Constantes;
 
 import java.sql.*;
@@ -20,77 +25,74 @@ import java.awt.event.ActionEvent;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
+@RunWith(MockitoJUnitRunner.class)
 public class test {
 
-    public ActionsBDImpl conn = new ActionsBDImpl();
- 
-    /*@Test
-    public void testAjouterProgrammeur() throws SQLException
+    @Mock
+    private Connection con;
+
+    @Mock
+    private PreparedStatement pstmt;
+
+    @Mock
+    private ResultSet rs;
+
+    private ProgrammeurBean p;
+
+
+    @Before
+    public void initTest() throws SQLException {
+        Mockito.when(con.prepareStatement(Mockito.any(String.class))).thenReturn(pstmt);
+        Mockito.when(con.createStatement()).thenReturn(pstmt);
+        Mockito.when(pstmt.executeQuery(Mockito.any(String.class))).thenReturn(rs);
+        Mockito.when(con.createStatement()).thenReturn(pstmt);
+
+        p = new ProgrammeurBean("1", "testLastName", "testFirstName", "testAddress", "testPseudo", "testResponsable", "testHobby", java.sql.Date.valueOf("2010-01-08"), java.sql.Date.valueOf("2020-05-01"));
+        rs.insertRow();
+        Mockito.when(rs.getString("MATRICULE")).thenReturn("1");
+        Mockito.when(rs.getString("PRENOM")).thenReturn("testFirstName");
+        Mockito.when(rs.getString("NOM")).thenReturn("testLastName");
+        Mockito.when(rs.getString("ADRESSE")).thenReturn("testAddress");
+        Mockito.when(rs.getString("PSEUDO")).thenReturn("testPseudo");
+        Mockito.when(rs.getString("RESPONSABLE")).thenReturn("testResponsable");
+        Mockito.when(rs.getString("HOBBY")).thenReturn("testHobby");
+        Mockito.when(rs.getDate("DATE_NAISS")).thenReturn(java.sql.Date.valueOf("2010-01-08"));
+        Mockito.when(rs.getDate("DATE_EMB")).thenReturn(java.sql.Date.valueOf("2020-05-01"));
+        Mockito.when(rs.next()).thenReturn(true).thenReturn(false);
+    }
+
+
+    @Test
+    public void creerProgrammeur()
     {
-        Assert.assertNotNull(conn);
-        PreparedStatement pstmt = conn.prepareStatement(Constantes.INSERT_UNIQUE);
-
-        pstmt.setString(1, Constantes.TESTADDPROG_MATR);
-        pstmt.setString(2, Constantes.TESTADDPROG_NOM);
-        pstmt.setString(3, Constantes.TESTADDPROG_PRENOM);
-        pstmt.setString(4, Constantes.TESTADDPROG_ADR);
-        pstmt.setString(5, Constantes.TESTADDPROG_PSEUDO);
-        pstmt.setString(6, Constantes.TESTADDPROG_RESP);
-        pstmt.setString(7, Constantes.TESTADDPROG_HOBBY);
-        pstmt.setString(8, Constantes.TESTADDPROG_DATNAISS);
-        pstmt.setString(9, Constantes.TESTADDPROG_DATEMP);
-
-        int isSuccessful = pstmt.executeUpdate();
-        Assert.assertEquals(1, isSuccessful);
+        ActionsBDImpl bdd = new ActionsBDImpl(con);
+        bdd.ajouterProgrammeur(p.getMatricule(), p.getNom(), p.getPrenom(), p.getAdresse(), p.getPseudo(), p.getResponsable(), p.getHobby(), "08", "01", "2010", "01", "05", "2020");
     }
 
     @Test
-    public void testModifierProgrammeur() throws SQLException
-    {
-        Assert.assertNotNull(conn);
-        PreparedStatement pstmt = conn.prepareStatement(Constantes.UPDATE_UNIQUE);
-
-        pstmt.setString(1, Constantes.TESTADDPROG_NOM);
-        pstmt.setString(2, Constantes.TESTADDPROG_PRENOM);
-        pstmt.setString(3, Constantes.TESTADDPROG_ADR);
-        pstmt.setString(4, Constantes.TESTUPDPROG_PSEUDO);
-        pstmt.setString(5, Constantes.TESTUPDPROG_RESP);
-        pstmt.setString(6, Constantes.TESTADDPROG_HOBBY);
-        pstmt.setString(7, Constantes.TESTADDPROG_DATNAISS);
-        pstmt.setString(8, Constantes.TESTUPDPROG_DATEMP);
-        pstmt.setString(9, Constantes.TESTADDPROG_MATR);
-
-        int isSuccessful = pstmt.executeUpdate();
-        Assert.assertNotEquals(0, isSuccessful);
+    public void modifierProgrammeur() {
+        ActionsBDImpl bdd = new ActionsBDImpl(con);
+        bdd.modifierProgrammeur(p.getMatricule(), p.getNom(), p.getPrenom(), p.getAdresse(), p.getPseudo(), p.getResponsable(), p.getHobby(), "08", "01", "2010", "01", "05", "2020");
     }
 
     @Test
-    public void testSupprimerProgrammeur() throws SQLException
-    {
-        Assert.assertNotNull(conn);
-        PreparedStatement pstmt = conn.prepareStatement(Constantes.DELETE_UNIQUE);
-
-        pstmt.setString(1, Constantes.TESTADDPROG_MATR);
-
-        int isSuccessful = pstmt.executeUpdate();
-        Assert.assertNotEquals(0, isSuccessful);
-    }*/
-
-
+    public void supprimerProgrammeur() {
+        ActionsBDImpl bdd = new ActionsBDImpl(con);
+        bdd.supprimerProgrammeur(p.getMatricule());
+    }
 
     /**
      * Test to check closure of the Database
      */
     @Test
     public void testFermerRessources() {
-        ActionsBDImpl tested = new ActionsBDImpl();
+        ActionsBDImpl bdd = new ActionsBDImpl(con);
         try{
+            bdd.fermerRessources();
+            final Field field = bdd.getClass().getDeclaredField("dbConn");
+            field.setAccessible(true); // change the field dbConn in ActionsBDImpl to public
 
-            tested.fermerRessources();
-            final Field field = tested.getClass().getDeclaredField("dbConn");
-            field.setAccessible(true); // changethe field dbConn in ActionsBDImpl to public
-
-            Connection dbConn = (Connection) field.get(tested); //getter of dbConn
+            Connection dbConn = (Connection) field.get(bdd); //getter of dbConn
 
             Assert.assertNull(dbConn);
         } catch (NoSuchFieldException | IllegalAccessException exception) {
@@ -103,19 +105,10 @@ public class test {
      * Test to check if we retrieve list of programmers from Database
      */
     @Test
-    public void testGetProgrammeurs() {
-        ActionsBDImpl tested = new ActionsBDImpl();
-        Assert.assertTrue(tested.getProgrammeurs() instanceof ArrayList);
-    }
-
-    /**
-     * Test to check if we retrieve list of programmers from Database
-     */
-    @Test
-    public void testGetResultSet() {
-        String query = Constantes.SELECT_ALL;
-        ActionsBDImpl tested = new ActionsBDImpl();
-        Assert.assertTrue(tested.getResultSet(query) instanceof ResultSet);
+    public void getProgrammeurs() {
+        ActionsBDImpl bdd = new ActionsBDImpl(con);
+        ProgrammeurBean pb = (ProgrammeurBean) bdd.getProgrammeurs().get(0);
+        Assert.assertEquals(p.getAdresse(), pb.getAdresse());
     }
 
     /**
@@ -479,43 +472,15 @@ public class test {
 
         Assert.assertEquals("paneGenerique didn't match.", paneGeneriqueTest.toString(), field.get(ihm).toString());
     }
-    
-    /**
-     * Test the function getProgrammeurs
-     */
-    @Test
-    public void getProgrammeurs() {
-        ProgrammeurBean testProg1 = new ProgrammeurBean("1","Torvalds","Linus","2 avenue Linux Git","linuxroot","Didier Achvar","Salsa", Date.valueOf("1969-01-12"),Date.valueOf("2170-01-12"));
-        ProgrammeurBean testProg10 = new ProgrammeurBean("10","Codd","Edgar Frank","2 bvd des Relations","bdd1","Lamine Bougueroua","Puzzles",Date.valueOf("1923-01-12"),Date.valueOf("8541-01-12"));
-        ProgrammeurBean prog1 = (ProgrammeurBean)conn.getProgrammeurs().get(0);
-        ProgrammeurBean prog10 = (ProgrammeurBean)conn.getProgrammeurs().get(9);
-        Assert.assertEquals(prog1.getNom(), testProg1.getNom());
-        Assert.assertEquals(prog10.getNom(), testProg10.getNom());
-        Assert.assertEquals(conn.getProgrammeurs().size(), 13); // check that the number of programmers recovered is correct
-    }
 
     /**
      * Test to check afficherProgrammeurs
      */
     @Test
     public void afficherProgrammeurs() {
-        String listeProg = "";
-        String fakeString = "1 Torvalds Linus 2 avenue Linux Git linuxroot Didier Achvar Salsa 1969-01-12 2170-01-12\n";
-
-        // Create a false list of ProgrammeurBean
-        ArrayList<ProgrammeurBean> listeProgrammeurs = new ArrayList<>();
-
-        for(int i=0;i<3;i++) {
-            ProgrammeurBean pb = Mockito.mock(ProgrammeurBean.class);
-            Mockito.when(pb.toString()).thenReturn(fakeString); // fake the return of toString to a predefined String
-            listeProgrammeurs.add(pb);
-        }
-
-        for (ProgrammeurBean progr : listeProgrammeurs) {
-            listeProg = listeProg + progr;
-        }
-
-        Assert.assertEquals(listeProg, fakeString + fakeString + fakeString); //Check that the returned String is as expected
+        ActionsBDImpl bdd = new ActionsBDImpl(con);
+        String result = bdd.afficherProgrammeurs();
+        Assert.assertEquals(p.toString(), result); //Check that the returned String is as expected
     }
 
     /**
