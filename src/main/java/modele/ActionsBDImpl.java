@@ -36,6 +36,14 @@ public class ActionsBDImpl implements ActionsBD{
     }
 
     /**
+     * Constructeur initialisant la connexion fournie
+     * utile pour tester (permet de mock la connexion)
+     */
+    public ActionsBDImpl(Connection conn) {
+        this.dbConn = conn;
+    }
+
+    /**
      * Lance la requête passée en paramètre et retourne le ResultSet correspondant à cette requête
      * @param req   Requête SQL que l'on souhaite exécuter
      * @return rs, un ResultSet

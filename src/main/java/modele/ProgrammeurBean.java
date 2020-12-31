@@ -15,8 +15,20 @@ public class ProgrammeurBean{
     private String hobby;
     private Date date_naiss;
     private Date date_emb;
-    
-    public ProgrammeurBean(){
+
+    public ProgrammeurBean() {}
+
+    public ProgrammeurBean(String matricule_, String nom_, String prenom_, String adresse_, String pseudo_,
+                           String responsable_, String hobby_, Date date_naiss_, Date date_emb_){
+        matricule=matricule_;
+        nom=nom_;
+        prenom=prenom_;
+        adresse=adresse_;
+        pseudo=pseudo_;
+        responsable=responsable_;
+        hobby=hobby_;
+        date_naiss=date_naiss_;
+        date_emb=date_emb_;
     }
 
     /**
