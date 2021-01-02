@@ -113,46 +113,45 @@ public class test {
 
     /**
      * Test to check components of the Display
-     *
-     * @throws NoSuchFieldException If one field is missing is the Database
-     * @throws IllegalAccessException If the Database cannot be access
+     * (this isn't a unit test anymore)
      */
     @Test
-    public void testDisplayModifierFinal() throws NoSuchFieldException, IllegalAccessException {
+    public void testDisplayModifierFinal() {
         // Setup
         final Vue vue = new Vue();
-        final Field paneGenerique = vue.getClass().getSuperclass().getDeclaredField("paneGenerique");
-        paneGenerique.setAccessible(true);
-        paneGenerique.set(vue, new JPanel());
-        final Field btnRechercher = vue.getClass().getDeclaredField("btnRechercher");
-        final Field btnAnnuler = vue.getClass().getDeclaredField("btnAnnuler");
-        final Field btnReinitializer = vue.getClass().getDeclaredField("btnReinitialiser");
-        final Field btnValidateEcranModifier = vue.getClass().getDeclaredField("btnValiderEcranModifier");
-        btnAnnuler.setAccessible(true);
-        btnReinitializer.setAccessible(true);
-        btnRechercher.setAccessible(true);
-        btnValidateEcranModifier.setAccessible(true);
+        vue.display();
+        JPanel paneGenerique = vue.getPaneGenerique();
 
-        // When
+        // checking that paneGenerique is valid before calling the tested method
+        Assert.assertEquals("PaneGenerique size from display() didn't match", 22, paneGenerique.getComponents().length);
+
+        // main call
         vue.displayModifierFinal();
 
-        //Then
-        Assert.assertTrue("btnRechercher's text content is not Rechercher", ((JButton) btnRechercher.get(vue)).getText() == "Rechercher");
-        Assert.assertTrue("btnReinitializer's text content is not Réinitialiser", ((JButton) btnReinitializer.get(vue)).getText() == "Réinitialiser");
-        Assert.assertTrue("btnValidateEcranModifier's text content is not Valider", ((JButton) btnValidateEcranModifier.get(vue)).getText() == "Valider");
-        Assert.assertTrue("btnAnnuler's text content is not Annuler", ((JButton) btnAnnuler.get(vue)).getText() == "Annuler");
+        // getting the affected attributes
+        paneGenerique = vue.getPaneGenerique();
+        JButton btnRechercher = vue.getBtnRechercher();
+        JButton btnAnnuler = vue.getBtnAnnuler();
+        JButton btnReinitialiser = vue.getBtnReinitialiser();
+        JButton btnValiderEcranModifier = vue.getBtnValiderEcranModifier();
 
-        Assert.assertEquals("PaneGenerique size didn't match", ((JPanel) paneGenerique.get(vue)).getComponents().length, 4);
+        // then
+        Assert.assertTrue("btnRechercher's text content is not Rechercher", btnRechercher.getText() == "Rechercher");
+        Assert.assertTrue("btnReinitializer's text content is not Réinitialiser", btnReinitialiser.getText() == "Réinitialiser");
+        Assert.assertTrue("btnValidateEcranModifier's text content is not Valider", btnValiderEcranModifier.getText() == "Valider");
+        Assert.assertTrue("btnAnnuler's text content is not Annuler", btnAnnuler.getText() == "Annuler");
 
-        Assert.assertTrue("btnRechercher does not have a listener", ((JButton) btnRechercher.get(vue)).getActionListeners().length > 0);
-        Assert.assertTrue("btnAnnuler does not have a listener", ((JButton) btnAnnuler.get(vue)).getActionListeners().length > 0);
-        Assert.assertTrue("btnReinitialiser is enabled", !((JButton) btnReinitializer.get(vue)).isEnabled());
-        Assert.assertTrue("btnValiderEcranModifier does not have a listener", ((JButton) btnValidateEcranModifier.get(vue)).getActionListeners().length > 0);
+        Assert.assertEquals("PaneGenerique size didn't vary as expected", 26, paneGenerique.getComponents().length);
 
-        Assert.assertTrue("btnRechercher wrong bounds", ((JButton) btnRechercher.get(vue)).getBounds().x == 85);
-        Assert.assertTrue("btnAnnuler wrong bounds", ((JButton) btnAnnuler.get(vue)).getBounds().x == 400);
-        Assert.assertTrue("btnReinitialiser wrong bounds", ((JButton) btnReinitializer.get(vue)).getBounds().x == 190);
-        Assert.assertTrue("btnValiderEcranModifier wrong bounds", ((JButton) btnValidateEcranModifier.get(vue)).getBounds().x == 295);
+        Assert.assertTrue("btnRechercher does not have a listener", btnRechercher.getActionListeners().length > 0);
+        Assert.assertTrue("btnAnnuler does not have a listener", btnAnnuler.getActionListeners().length > 0);
+        Assert.assertTrue("btnReinitialiser is enabled", !btnReinitialiser.isEnabled());
+        Assert.assertTrue("btnValiderEcranModifier does not have a listener", btnValiderEcranModifier.getActionListeners().length > 0);
+
+        Assert.assertTrue("btnRechercher wrong bounds", btnRechercher.getBounds().x == 85);
+        Assert.assertTrue("btnAnnuler wrong bounds", btnAnnuler.getBounds().x == 400);
+        Assert.assertTrue("btnReinitialiser wrong bounds", btnReinitialiser.getBounds().x == 190);
+        Assert.assertTrue("btnValiderEcranModifier wrong bounds", btnValiderEcranModifier.getBounds().x == 295);
     }
 
     /**
@@ -224,7 +223,6 @@ public class test {
 
         ArrayList<JComponent> listComponentsTest = new ArrayList<>();
 
-        listComponentsTest = new ArrayList<>();
         listComponentsTest.add(labelMatriculeTest);
         listComponentsTest.add(champMatriculeTest);
         listComponentsTest.add(labelNomTest);
@@ -506,45 +504,44 @@ public class test {
 
     /**
      * Test to check components of the Display after modifications
-     *
-     * @throws NoSuchFieldException If one field is missing is the Database
-     * @throws IllegalAccessException If the Database cannot be access
+     * (this isn't a unit test anymore)
      */
     @Test
-    public void testDisplayModifier() throws NoSuchFieldException, IllegalAccessException {
+    public void testDisplayModifier() {
         // Setup
         final Vue vue = new Vue();
-        final Field paneGenerique = vue.getClass().getSuperclass().getDeclaredField("paneGenerique");
-        paneGenerique.setAccessible(true);
-        paneGenerique.set(vue, new JPanel());
-        final Field btnRechercher = vue.getClass().getDeclaredField("btnRechercher");
-        final Field btnAnnuler = vue.getClass().getDeclaredField("btnAnnuler");
-        final Field btnReinitializer = vue.getClass().getDeclaredField("btnReinitialiser");
-        final Field btnValidateEcranModifier = vue.getClass().getDeclaredField("btnValiderEcranModifier");
-        btnAnnuler.setAccessible(true);
-        btnReinitializer.setAccessible(true);
-        btnRechercher.setAccessible(true);
-        btnValidateEcranModifier.setAccessible(true);
+        vue.display();
+        JPanel paneGenerique = vue.getPaneGenerique();
 
-        // When
+        // checking that paneGenerique is valid before calling the tested method
+        Assert.assertEquals("PaneGenerique size from display() didn't match", 22, paneGenerique.getComponents().length);
+
+        // main call
         vue.displayModifier();
 
+        // getting the affected attributes
+        paneGenerique = vue.getPaneGenerique();
+        JButton btnRechercher = vue.getBtnRechercher();
+        JButton btnAnnuler = vue.getBtnAnnuler();
+        JButton btnReinitialiser = vue.getBtnReinitialiser();
+        JButton btnValiderEcranModifier = vue.getBtnValiderEcranModifier();
+
         //Then
-        Assert.assertTrue("btnRechercher's text content is not Rechercher", ((JButton) btnRechercher.get(vue)).getText() == "Rechercher");
-        Assert.assertTrue("btnReinitializer's text content is not Réinitialiser", ((JButton) btnReinitializer.get(vue)).getText() == "Réinitialiser");
-        Assert.assertTrue("btnValidateEcranModifier's text content is not Valider", ((JButton) btnValidateEcranModifier.get(vue)).getText() == "Valider");
-        Assert.assertTrue("btnAnnuler's text content is not Annuler", ((JButton) btnAnnuler.get(vue)).getText() == "Annuler");
+        Assert.assertTrue("btnRechercher's text content is not Rechercher", btnRechercher.getText() == "Rechercher");
+        Assert.assertTrue("btnReinitializer's text content is not Réinitialiser", btnReinitialiser.getText() == "Réinitialiser");
+        Assert.assertTrue("btnValidateEcranModifier's text content is not Valider", btnValiderEcranModifier.getText() == "Valider");
+        Assert.assertTrue("btnAnnuler's text content is not Annuler", btnAnnuler.getText() == "Annuler");
 
-        Assert.assertEquals("PaneGenerique size didn't match", ((JPanel) paneGenerique.get(vue)).getComponents().length, 4);
+        Assert.assertEquals("PaneGenerique size didn't match", paneGenerique.getComponents().length, 26);
 
-        Assert.assertTrue("btnRechercher does not have a listener", ((JButton) btnRechercher.get(vue)).getActionListeners().length > 0);
-        Assert.assertTrue("btnAnnuler does not have a listener", ((JButton) btnAnnuler.get(vue)).getActionListeners().length > 0);
-        Assert.assertTrue("btnReinitialiser is enabled", !((JButton) btnReinitializer.get(vue)).isEnabled());
-        Assert.assertTrue("btnValiderEcranModifier does not have a listener", !((JButton) btnValidateEcranModifier.get(vue)).isEnabled());
+        Assert.assertTrue("btnRechercher does not have a listener", btnRechercher.getActionListeners().length > 0);
+        Assert.assertTrue("btnAnnuler does not have a listener", btnAnnuler.getActionListeners().length > 0);
+        Assert.assertTrue("btnReinitialiser is enabled", !btnReinitialiser.isEnabled());
+        Assert.assertTrue("btnValiderEcranModifier is enabled", !btnValiderEcranModifier.isEnabled());
 
-        Assert.assertTrue("btnRechercher wrong bounds", ((JButton) btnRechercher.get(vue)).getBounds().x == 85);
-        Assert.assertTrue("btnAnnuler wrong bounds", ((JButton) btnAnnuler.get(vue)).getBounds().x == 400);
-        Assert.assertTrue("btnReinitialiser wrong bounds", ((JButton) btnReinitializer.get(vue)).getBounds().x == 190);
-        Assert.assertTrue("btnValiderEcranModifier wrong bounds", ((JButton) btnValidateEcranModifier.get(vue)).getBounds().x == 295);
+        Assert.assertTrue("btnRechercher wrong bounds", btnRechercher.getBounds().x == 85);
+        Assert.assertTrue("btnAnnuler wrong bounds", btnAnnuler.getBounds().x == 400);
+        Assert.assertTrue("btnReinitialiser wrong bounds", btnReinitialiser.getBounds().x == 190);
+        Assert.assertTrue("btnValiderEcranModifier wrong bounds", btnValiderEcranModifier.getBounds().x == 295);
     }
 }

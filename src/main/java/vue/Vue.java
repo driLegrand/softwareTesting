@@ -415,4 +415,24 @@ public class Vue extends GestionVueAbstraite {
             this.repaint();
         }
     }
+
+    public JPanel getPaneGenerique() {
+        return this.paneGenerique;
+    }
+
+    public JButton getBtnRechercher() {
+        return this.btnRechercher;
+    }
+
+    public JButton getBtnAnnuler() {
+        return this.btnAnnuler;
+    }
+
+    public JButton getBtnReinitialiser() {
+        return this.btnReinitialiser;
+    }
+
+    public JButton getBtnValiderEcranModifier() {
+        return this.btnValiderEcranModifier;
+    }
 }
