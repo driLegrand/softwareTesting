@@ -6,9 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoJUnitRunner;
-import utils.Constantes;
 
 import java.sql.*;
 import java.util.List;
@@ -22,8 +20,6 @@ import java.util.ArrayList;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
 
 @RunWith(MockitoJUnitRunner.class)
 public class test {
@@ -280,62 +276,33 @@ public class test {
 
     /**
      * Test to check the Rechercher button
-     *
-     * @throws NoSuchFieldException If one field is missing is the Database
-     * @throws IllegalAccessException If the Database cannot be access
      */
     @Test
-    public void testSetButtonBounds() throws NoSuchFieldException, IllegalAccessException {
-        final Vue ihm = new Vue();
-        ihm.display();
-        final Field field = ihm.getClass().getDeclaredField("btnRechercher");
-        field.setAccessible(true);
+    public void testSetButtonBounds() {
+        Vue vue = new Vue();
 
-        JButton btnRechercher = (JButton) field.get(ihm);
-        btnRechercher = new JButton("Rechercher");
-        ihm.setButtonBounds(btnRechercher, 85);
+        JButton btnTest = new JButton();
+        vue.setButtonBounds(btnTest, 85);
 
-        JPanel paneGeneriqueTest = new JPanel();
-        paneGeneriqueTest.setLayout(null);
-        JButton btnRechercherTest = new JButton("Rechercher");
+        JButton btnRef = new JButton();
+        btnRef.setBounds(85, 200, 100, 30);
 
-        paneGeneriqueTest.add(btnRechercherTest);
-        btnRechercherTest.addActionListener(ihm);
-        btnRechercherTest.setBounds(85, 200, 100, 30);
-
-        System.out.println(btnRechercherTest.toString());
-        Assert.assertEquals("btnRechercher didn't match.", btnRechercherTest.toString(), btnRechercher.toString());
+        Assert.assertEquals("Button bounds are not set correctly", btnRef.toString(), btnTest.toString());
     }
 
     /**
      * Test to check the label matricule
-     *
-     * @throws NoSuchFieldException If one field is missing is the Database
-     * @throws IllegalAccessException If the Database cannot be access
      */
     @Test
-    public void testSetFieldBounds() throws NoSuchFieldException, IllegalAccessException {
-        final Vue ihm = new Vue();
+    public void testSetFieldBounds() {
+        Vue vue = new Vue();
+        JLabel labelMatricule = new JLabel("Matricule");
+        vue.setFieldBounds(labelMatricule, 10, 10, 80);
 
-        final Field field = ihm.getClass().getDeclaredField("labelMatricule");
-        field.setAccessible(true);
-
-        JLabel labelMatricule = (JLabel) field.get(ihm);//mock
-        labelMatricule = new JLabel("Matricule");
-        ihm.setFieldBounds(labelMatricule, 10, 10, 80);
-
-
-
-        JPanel paneGeneriqueTest = new JPanel();
-        paneGeneriqueTest.setLayout(null);
         JLabel labelMatriculeTest = new JLabel("Matricule");
-
-        ArrayList<JComponent> listComponentsTest = new ArrayList<>();
-        listComponentsTest.add(labelMatriculeTest);
-        ihm.addTo(paneGeneriqueTest, listComponentsTest);
         labelMatriculeTest.setBounds(10, 10, 80, 20);
 
-        Assert.assertEquals("labelMatricule didn't match.", labelMatriculeTest.toString(), labelMatricule.toString());
+        Assert.assertEquals("Field bounds are not set correctly", labelMatriculeTest.toString(), labelMatricule.toString());
     }
 
     /**
@@ -346,22 +313,17 @@ public class test {
      */
     @Test
     public void testDisplayAfficherTous() throws NoSuchFieldException, IllegalAccessException {
-        final Vue ihm = new Vue();
-        ihm.displayAfficherTous();
-
-        final Field field = ihm.getClass().getSuperclass().getDeclaredField("paneAfficher");
-        field.setAccessible(true);
-
-        final Field field2 = ihm.getClass().getSuperclass().getDeclaredField("zoneAffichageProgrammeurs");
-        field2.setAccessible(true);
+        final Vue vue = new Vue();
+        vue.displayAfficherTous();
 
         JPanel paneAfficherTest = new JPanel();
         JTextArea zoneAffichageProgrammeursTest = new JTextArea(10, 70);
         JScrollPane scrollTest = new JScrollPane(zoneAffichageProgrammeursTest);
         paneAfficherTest.add(scrollTest);
 
-        Assert.assertEquals("paneAfficher didn't match.", paneAfficherTest.toString(), field.get(ihm).toString());
-        Assert.assertEquals("zoneAffichageProgrammeurs didn't match.", zoneAffichageProgrammeursTest.toString(), field2.get(ihm).toString());
+        Assert.assertEquals("paneAfficher didn't match.", paneAfficherTest.toString(), vue.getPaneAfficher().toString());
+        Assert.assertEquals("zoneAffichageProgrammeurs didn't match.", zoneAffichageProgrammeursTest.toString(), vue.getZoneAffichageProgrammeurs().toString());
+        Assert.assertEquals("scroll didn't match.", scrollTest.toString(), vue.getScroll().toString());
     }
 
     /**

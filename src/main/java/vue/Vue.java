@@ -435,4 +435,16 @@ public class Vue extends GestionVueAbstraite {
     public JButton getBtnValiderEcranModifier() {
         return this.btnValiderEcranModifier;
     }
+
+    public JPanel getPaneAfficher() {
+        return this.paneAfficher;
+    }
+
+    public JTextArea getZoneAffichageProgrammeurs() {
+        return this.zoneAffichageProgrammeurs;
+    }
+
+    public JScrollPane getScroll() {
+        return this.scroll;
+    }
 }
