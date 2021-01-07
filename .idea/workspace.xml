@@ -23,9 +23,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a8fba83-70cb-4e46-971e-1e6d48f485fa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/Vue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/Vue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/ActionsBDImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/ActionsBDImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/ProgrammeurBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/ProgrammeurBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Constantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Constantes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/modele/ActionsBD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/ActionsBD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/modele/ActionsBDImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/ActionsBDImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/modele/ProgrammeurBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/modele/ProgrammeurBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/Constantes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Constantes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/vue/GestionVueAbstraite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/GestionVueAbstraite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/vue/Start.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/Start.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/vue/Vue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vue/Vue.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
