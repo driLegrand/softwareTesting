@@ -12,6 +12,8 @@ import java.sql.*;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import utils.Constantes;
 import vue.Vue;
 
 import javax.swing.*;
@@ -57,6 +59,18 @@ public class test {
         Mockito.when(rs.next()).thenReturn(true).thenReturn(false);
     }
 
+    @Test
+    public void testConnectionBDD()
+    {
+        String connect;
+        try {
+            DriverManager.getConnection(Constantes.URL, Constantes.USER, Constantes.MDP);
+            connect = "Connection successful";
+        } catch (SQLException sqle) {
+           connect = "Connection failed";
+        }
+        Assert.assertEquals("Connection successful",connect);
+    }
 
     @Test
     public void creerProgrammeur()
