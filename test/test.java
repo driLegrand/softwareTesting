@@ -328,18 +328,13 @@ public class test {
 
     /**
      * Test to check components of the DisplayAjouter
-     *
-     * @throws NoSuchFieldException If one field is missing is the Database
-     * @throws IllegalAccessException If the Database cannot be access
      */
     @Test
-    public void testDisplayAjouter() throws NoSuchFieldException, IllegalAccessException {
-        final Vue ihm = new Vue();
-        ihm.display();
-        ihm.displayAjouter();
-
-        final Field field = ihm.getClass().getSuperclass().getDeclaredField("paneGenerique");
-        field.setAccessible(true);
+    public void testDisplayAjouter() {
+        final Vue vue = new Vue();
+        vue.display();
+        vue.displayAjouter();
+        JPanel paneGenerique = vue.getPaneGenerique();
 
         JPanel paneGeneriqueTest = new JPanel();
         paneGeneriqueTest.setLayout(null);
@@ -353,31 +348,26 @@ public class test {
         paneGeneriqueTest.add(btnValiderEcranAjouterTest);
         paneGeneriqueTest.add(btnAnnulerTest);
         btnRechercherTest.setEnabled(false);
-        btnReinitialiserTest.addActionListener(ihm);
-        btnValiderEcranAjouterTest.addActionListener(ihm);
-        btnAnnulerTest.addActionListener(ihm);
-        ihm.setButtonBounds(btnRechercherTest, 85);
-        ihm.setButtonBounds(btnReinitialiserTest, 190);
-        ihm.setButtonBounds(btnValiderEcranAjouterTest, 295);
-        ihm.setButtonBounds(btnAnnulerTest, 400);
+        btnReinitialiserTest.addActionListener(vue);
+        btnValiderEcranAjouterTest.addActionListener(vue);
+        btnAnnulerTest.addActionListener(vue);
+        btnRechercherTest.setBounds(85, 200, 100, 30);
+        btnReinitialiserTest.setBounds(190, 200, 100, 30);
+        btnValiderEcranAjouterTest.setBounds(295, 200, 100, 30);
+        btnAnnulerTest.setBounds(400, 200, 100, 30);
 
-        Assert.assertEquals("paneGenerique didn't match.", paneGeneriqueTest.toString(), field.get(ihm).toString());
+        Assert.assertEquals("Couldn't properly display the 'adding' view", paneGeneriqueTest.toString(), paneGenerique.toString());
     }
 
     /**
      * Test to check components of the DisplaySupprimer
-     *
-     * @throws NoSuchFieldException If one field is missing is the Database
-     * @throws IllegalAccessException If the Database cannot be access
      */
     @Test
-    public void testDisplaySupprimer() throws NoSuchFieldException, IllegalAccessException {
-        final Vue ihm = new Vue();
-        ihm.display();
-        ihm.displaySupprimer();
-
-        final Field field = ihm.getClass().getSuperclass().getDeclaredField("paneGenerique");
-        field.setAccessible(true);
+    public void testDisplaySupprimer(){
+        final Vue vue = new Vue();
+        vue.display();
+        vue.displaySupprimer();
+        JPanel paneGenerique = vue.getPaneGenerique();
 
         JPanel paneGeneriqueTest = new JPanel();
         paneGeneriqueTest.setLayout(null);
@@ -419,18 +409,19 @@ public class test {
         listComponentsTest.add(new JComboBox(mois));
         listComponentsTest.add(new JTextField("année"));
         //ihm.addTo(paneGeneriqueTest, listComponentsTest);
-        ihm.disableAll(listComponentsTest);
+        for(JComponent component : listComponentsTest){
+            component.setEnabled(false);
+        }
         labelMatriculeTest.setEnabled(true);
         champMatriculeTest.setEnabled(true);
+        btnValiderEcranSupprimerTest.addActionListener(vue);
+        btnAnnulerTest.addActionListener(vue);
+        btnRechercherTest.setBounds(85, 200, 100, 30);
+        btnReinitialiserTest.setBounds(190, 200, 100, 30);
+        btnValiderEcranSupprimerTest.setBounds(295, 200, 100, 30);
+        btnAnnulerTest.setBounds(400, 200, 100, 30);
 
-        btnValiderEcranSupprimerTest.addActionListener(ihm);
-        btnAnnulerTest.addActionListener(ihm);
-        ihm.setButtonBounds(btnRechercherTest, 85);
-        ihm.setButtonBounds(btnReinitialiserTest, 190);
-        ihm.setButtonBounds(btnValiderEcranSupprimerTest, 295);
-        ihm.setButtonBounds(btnAnnulerTest, 400);
-
-        Assert.assertEquals("paneGenerique didn't match.", paneGeneriqueTest.toString(), field.get(ihm).toString());
+        Assert.assertEquals("paneGenerique didn't match.", paneGeneriqueTest.toString(), paneGenerique.toString());
     }
 
     /**
