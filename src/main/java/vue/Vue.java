@@ -2,21 +2,14 @@ package vue;
 
 import modele.ActionsBDImpl;
 import java.awt.event.ActionEvent;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
+
 import modele.ProgrammeurBean;
 import java.awt.Color;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import javax.swing.JComponent;
 
 /**
  * Classe gérant la vue de la mise à jour des données des programmeurs
@@ -428,6 +421,10 @@ public class Vue extends GestionVueAbstraite {
         return this.btnAnnuler;
     }
 
+    public void setBtnAnnuler(JButton btnAnnuler) {
+        this.btnAnnuler = btnAnnuler;
+    }
+
     public JButton getBtnReinitialiser() {
         return this.btnReinitialiser;
     }
@@ -446,5 +443,9 @@ public class Vue extends GestionVueAbstraite {
 
     public JScrollPane getScroll() {
         return this.scroll;
+    }
+
+    public void setPaneAccueil(JPanel paneAccueil) {
+        this.paneAccueil = paneAccueil;
     }
 }

@@ -158,22 +158,16 @@ public class test {
      */
     @Test
     public void testActionPerformed() throws NoSuchFieldException, IllegalAccessException {
-        final Vue vue = new Vue();
+        Vue vue = new Vue();
 
         // We make sure the source of the event isn't null, then we create it
-        final Field btnAnnuler = vue.getClass().getDeclaredField("btnAnnuler");
-        btnAnnuler.setAccessible(true);
-        btnAnnuler.set(vue, new JButton("Annuler"));
-        final ActionEvent eventBtnAnnuler = new ActionEvent((JButton) btnAnnuler.get(vue), 0, "");
-
+        vue.setBtnAnnuler(new JButton("Annuler"));
+        final ActionEvent eventBtnAnnuler = new ActionEvent(vue.getBtnAnnuler(), 0, "");
         // the case of btnAnnuler will use Vue.paneAccueil, so we need to instantiate it to avoid NullPointerException
-        final Field paneAccueil = vue.getClass().getSuperclass().getDeclaredField("paneAccueil");
-        paneAccueil.setAccessible(true);
-        paneAccueil.set(vue, new JPanel());
-
+        vue.setPaneAccueil(new JPanel());
         //We actually test the method
         vue.actionPerformed(eventBtnAnnuler);
-        Assert.assertEquals(Color.GRAY, vue.getContentPane().getBackground());
+        Assert.assertEquals("actionPerformed failed to handle btnAnnuler", Color.GRAY, vue.getContentPane().getBackground());
     }
 
     /**

@@ -24,6 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2a8fba83-70cb-4e46-971e-1e6d48f485fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/Vue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/Vue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.java" afterDir="false" />
     </list>
