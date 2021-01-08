@@ -9,11 +9,7 @@ Team :
  - Kevin Nagels
 
 1. Indications particulières pour lancer l’application
-Avant de lancer l’application pour la première fois, il faut se connecter à la base données. 
-Pour cela il suffit de se diriger sur l’onglet ‘Services’, choisir ‘Databases’ puis sélectionner ‘Start Server’ 
-avec un clic droit sur ‘JavaDB’ ou sélectionner ‘Connect...’ avec un clic droit sur ‘jdbc:derby://localhost:1527/LSI_L3_JAVA [adm on ADM]’. 
-Une fois connecté à la base de données, l’application peut être lancée.
-
+Avant de lancer l’application pour la première fois, il faut créer une base de donnée locale nommée "TP2ST" avec phpmyadmin (en utilisant WAMP server, AMPPS, ...) et lancée le script "Programmeur_JavaDB.sql" se trouvant dans src/main/java/utils (pour utiliser ce script, il suffit de l'importer dans la base de donnée crée au préalable).
 
 2. Choix de SGBD : Java DB ou MySQL
 Nous avons choisi Java DB comme SGBD car c’est un SGBD que nous avons découvert cette année et nous voulions le mettre en application. 
